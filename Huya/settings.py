@@ -71,7 +71,8 @@ DOWNLOADER_MIDDLEWARES = {
     'Huya.middlewares.HuyaUserAgentMiddleware': 400,                      #启动middlewares中设定好的usragent
     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware':None,   #禁用默认的usragent
 }
-HTTPERROR_ALLOWED_CODES = [301]
+# HTTPERROR_ALLOWED_CODES = [301]#重定向问题
+# HTTPERROR_ALLOWED_CODES = [301]
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
