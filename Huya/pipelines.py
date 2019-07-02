@@ -4,7 +4,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-import json,codecs
+import json, codecs
 import pymongo
 
 
@@ -12,7 +12,7 @@ class HuyaPipeline(object):
     def __init__(self):
         self.file = codecs.open('huyaanchor.csv', 'wb+', encoding='utf-8')  # 创建以utf-8编码的csv文件
         client = pymongo.MongoClient('localhost', 27017)  # 创建mongodb连接
-        db = client['huya3']  # 创建mongodb数据库huya
+        db = client['huya99']  # 创建mongodb数据库huya
         self.collection = db['huyaanchor']  # 创建数据库huya中collection
 
     def process_item(self, item, spider):

@@ -21,6 +21,14 @@ NEWSPIDER_MODULE = 'Huya.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+ITEM_PIPELINES = {
+   'Huya.pipelines.HuyaPipeline': 300,
+}
+DOWNLOADER_MIDDLEWARES = {
+    'Huya.middlewares.HuyaUserAgentMiddleware': 400,                      #启动middlewares中设定好的usragent
+    'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware':None,   #禁用默认的usragent
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
@@ -64,13 +72,8 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'Huya.pipelines.HuyaPipeline': 300,
-}
-DOWNLOADER_MIDDLEWARES = {
-    'Huya.middlewares.HuyaUserAgentMiddleware': 400,                      #启动middlewares中设定好的usragent
-    'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware':None,   #禁用默认的usragent
-}
+
+
 # HTTPERROR_ALLOWED_CODES = [301]#重定向问题
 # HTTPERROR_ALLOWED_CODES = [301]
 # Enable and configure the AutoThrottle extension (disabled by default)
