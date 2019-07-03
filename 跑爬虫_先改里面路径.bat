@@ -1,9 +1,4 @@
 @echo off 
-
-F:
-
-cd  F:\pyTest\Huya
-
+cd  F:\pyTest\huya_scrapy
 scrapy crawl huyaspider
-
 cmd
