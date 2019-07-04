@@ -6,6 +6,7 @@ from Huya.items import HuyaItem
 class HuyaspiderSpider(scrapy.Spider):
     name = 'huya'
     allowed_domains = ['www.huya.com']#设置爬虫允许抓取的
+    items_time = time.strftime('%Y-%m-%d %X', time.localtime())  # 记录爬取时间
     start_urls = ['http://www.huya.com/g']#设置第一个爬取的url
     allow_pagenum = 5;   #设置爬取频道的数量
     total_pagenum = 0;   #计算档前已爬取频道的数量
@@ -70,5 +71,5 @@ class HuyaspiderSpider(scrapy.Spider):
     def room_parse2(self, response):
         items = response.meta['items']
         items['fan_num'] = int(response.xpath('//div[@class="subscribe-count"]/text()').extract_first()) # 获取主播订阅数量
-        items['crawl_time'] = time.strftime('%Y-%m-%d %X', time.localtime())  # 记录爬取时间
+        items['crawl_time'] = self.items_time  # 记录爬取时间
         yield items  # 输出items
