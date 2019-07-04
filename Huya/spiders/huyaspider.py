@@ -4,7 +4,7 @@ from scrapy.http import Request
 from Huya.items import HuyaItem
 
 class HuyaspiderSpider(scrapy.Spider):
-    name = 'huyaspider'
+    name = 'huya'
     allowed_domains = ['www.huya.com']#设置爬虫允许抓取的
     start_urls = ['http://www.huya.com/g']#设置第一个爬取的url
     allow_pagenum = 5;   #设置爬取频道的数量
